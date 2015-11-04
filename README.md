@@ -1,0 +1,1 @@
+#weiphp_addons_ImageManager
