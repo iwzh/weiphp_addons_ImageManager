@@ -1,21 +1,14 @@
 <?php
-// +----------------------------------------------------------------------
-// | OneThink [ WE CAN DO IT JUST THINK IT ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2013 http://www.onethink.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Author: yangweijie <yangweijiester@gmail.com> <code-tech.diandian.com>
-// +----------------------------------------------------------------------
-namespace Plugins\ImageManager;
 
-use Common\Controller\Plugin;
+namespace Addons\ImageManager;
+use Common\Controller\Addon;
 
 /**
  * 图片管理插件
  * @author wzh
  */
 
-    class ImageManagerAddon extends Plugin{
+    class ImageManagerAddon extends Addon{
 
         public $info = array(
             'name'=>'ImageManager',
@@ -23,7 +16,8 @@ use Common\Controller\Plugin;
             'description'=>'图片管理，快速选择已上传图片到封面',
             'status'=>1,
             'author'=>'wzh',
-            'version'=>'0.1',
+            'version'=>'1.0',
+            'type'=>0         
         );
 
         public function install(){
@@ -39,6 +33,4 @@ use Common\Controller\Plugin;
             $this->assign("addon_path", $this->addon_path);
             $this->display("widget");
         }
-		
-       
     }

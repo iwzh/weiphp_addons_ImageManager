@@ -1,6 +1,5 @@
 <?php
-namespace Plugins\ImageManager\Controller;
-
+namespace Addons\ImageManager\Controller;
 use Home\Controller\AddonsController;
 class ImageManagerController extends AddonsController{
 	public function ImageManager(){
@@ -18,7 +17,7 @@ class ImageManagerController extends AddonsController{
             $config = get_addon_config("ImageManager");
             //var_dump($PictureResult);die;
             
-            $this->assign("addon_path", "./Plugins/ImageManager/");
+            $this->assign("addon_path", "./Addons/ImageManager/");
             $this->assign("curtime",    $times);
             $this->assign("strTimes",   $strTimes);
 			$arrname=(strpos($name,'[')==false)?$name:explode('[',trim($name,']'));
@@ -27,7 +26,7 @@ class ImageManagerController extends AddonsController{
             $this->assign("id",         $id);
             $this->assign("config", $config);
             $this->assign($PictureResult);
-			$this->display('index');
+			$this->display(T('Addons://ImageManager@ImageManager/index'));
            //$this->display('index');
 	}
         
