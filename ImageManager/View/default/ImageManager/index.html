@@ -7,7 +7,6 @@
 <script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
 <![endif]--><!--[if gte IE 9]><!-->
 <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="__JS__/jquery.mousewheel.js"></script>
 <script src="{$addon_path}Public/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
 <!--<![endif]-->
 <link rel="stylesheet" type="text/css" href="{$addon_path}Public/style/reset.css" />
@@ -80,7 +79,7 @@ $("#confirm").click(function(e) {
 		return false;
 	}
 	$("li.selected").each(function(index, element) {
-		window.parent.uploadPicture{$name}({}, "{" + $(this).data("json") + "}");
+		window.parent.uploadPicture("{$name}",{}, "{" + $(this).data("json") + "}");
         //console.log($(this).data("json"));
     });
 	$(window.parent.document).find(".fancybox-overlay").click();
