@@ -1,7 +1,12 @@
 <?php
 namespace Addons\ImageManager\Controller;
 use Home\Controller\AddonsController;
-class ImageManagerController extends AddonsController{
+
+class ImageManagerController extends AddonsController {
+    public function _initialize(){
+        parent::_initialize();
+        $this->config=get_addon_config("ImageManager");
+    }
 	public function ImageManager(){
             $name          = I("name");
             $id            = I("id");
@@ -14,7 +19,7 @@ class ImageManagerController extends AddonsController{
             $where['token']=get_token();
             $strTimes      = $this->getPictureTimes(array('token'=>$where['token']));
             $PictureResult = $this->getAllPictureData($where);
-            $config = get_addon_config("ImageManager");
+            $config = $this->config;
             //var_dump($PictureResult);die;
             
             $this->assign("addon_path", "./Addons/ImageManager/");
@@ -26,8 +31,7 @@ class ImageManagerController extends AddonsController{
             $this->assign("id",         $id);
             $this->assign("config", $config);
             $this->assign($PictureResult);
-			$this->display(T('Addons://ImageManager@ImageManager/index'));
-           //$this->display('index');
+    	    $this->display('index');
 	}
         
         public function deleteImage() {
@@ -52,7 +56,7 @@ class ImageManagerController extends AddonsController{
          * @return type
          */
         private function getAllPictureData (array $where = array()) {
-            $config = get_addon_config("ImageManager");
+            $config = $this->config;
             $listrow = 18;
             $p = I("p", 1, "intval");
             if (is_numeric($config['page_size']) && $config['page_size'] > 0) {
